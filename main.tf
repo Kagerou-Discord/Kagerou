@@ -23,5 +23,5 @@ resource discord_server etoile {
 
 resource discord_text_channel general {
   name = "general"
-  server_id = resource.etoile.id
+  server_id = discord_server.etoile.id
 }
