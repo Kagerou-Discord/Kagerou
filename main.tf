@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+variable "DISCORD_TOKEN" {}
+
 provider discord {
     token = var.DISCORD_TOKEN
 }
