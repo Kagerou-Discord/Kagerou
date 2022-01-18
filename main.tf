@@ -30,7 +30,7 @@ resource discord_category_channel general {
 resource discord_text_channel general {
   name = "general"
   server_id = discord_server.etoile.id
-  category ~ discord_category_channel.general.id
+  category = discord_category_channel.general.id
 }
 
 resource discord_invite invite_to_general {
