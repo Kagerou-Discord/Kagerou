@@ -21,12 +21,19 @@ resource discord_server etoile {
     owner_id = var.OWNER_ID
 }
 
+resource discord_category_channel general {
+  name = "general"
+  server_id = discord_server.etoile.id
+  position = 0
+}
+
 resource discord_text_channel general {
   name = "general"
   server_id = discord_server.etoile.id
+  category ~ discord_category_channel.general.id
 }
 
 resource discord_invite invite_to_general {
-    channel_id = discord_text_channel.general.id
-    max_age = 0
+  channel_id = discord_text_channel.general.id
+  max_age = 0
 }
