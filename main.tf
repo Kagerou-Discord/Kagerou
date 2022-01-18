@@ -14,7 +14,7 @@ provider discord {
     token = var.DISCORD_TOKEN
 }
 
-resource discord_server my_server {
+resource discord_server etoile {
     name = "Etoile"
     region = "japan"
     default_message_notifications = 1
@@ -23,5 +23,5 @@ resource discord_server my_server {
 
 resource discord_text_channel general {
   name = "general"
-  server_id = "933012563384496248"
+  server_id = resource.etoile.id
 }
