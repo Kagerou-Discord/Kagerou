@@ -23,5 +23,5 @@ resource discord_server my_server {
 
 resource discord_text_channel general {
   name = "general"
-  server_id = var.my_server.id
+  server_id = resource.my_server.id
 }
