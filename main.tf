@@ -25,3 +25,8 @@ resource discord_text_channel general {
   name = "general"
   server_id = discord_server.etoile.id
 }
+
+resource discord_invite invite_to_general {
+    channel_id = discord_text_channel.general.id
+    max_age = 0
+}
