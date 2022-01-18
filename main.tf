@@ -20,3 +20,8 @@ resource discord_server my_server {
     default_message_notifications = 1
     owner_id = var.OWNER_ID
 }
+
+resource discord_text_channel general {
+  name = "general"
+  server_id = var.my_server.id
+}
