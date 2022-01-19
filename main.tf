@@ -36,8 +36,12 @@ resource "discord_text_channel" "general" {
   category  = discord_category_channel.general.id
 }
 
+data "discord_permission" "moderator" {
+  kick_members = "allow"
+}
+
 resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.moderator.allow_bits
+  permissions = data.discord_permission.moderator.kick_members
 }
