@@ -15,7 +15,7 @@ provider discord {
 }
 
 resource discord_server etoile {
-    name = "Etoile"
+    name = "Kagerou"
     region = "japan"
     default_message_notifications = 1
     owner_id = var.OWNER_ID
