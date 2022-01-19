@@ -37,7 +37,7 @@ resource "discord_text_channel" "general" {
 }
 
 data "discord_permission" "moderator" {
-  kick_members = "allow"
+  administrator = "allow"
 }
 
 resource "discord_role" "admin" {
