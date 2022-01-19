@@ -40,17 +40,17 @@ data "discord_permission" "moderator" {
   administrator = "allow"
 }
 
-# resource "discord_role" "admin" {
-#   name        = "管理用ロール"
-#   server_id   = discord_server.server.id
-#   permissions = data.discord_permission.moderator.allow_bits
-#   position    = 0
-# }
+resource "discord_role" "admin" {
+  name        = "管理用ロール"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.moderator.allow_bits
+  position    = 0
+}
 
-# resource "discord_member_roles" "admin" {
-#   user_id   = "255951609174032385"
-#   server_id = discord_server.server.id
-#   role {
-#     role_id = discord_role.admin.id
-#   }
-# }
+resource "discord_member_roles" "admin" {
+  user_id   = "255951609174032385"
+  server_id = discord_server.server.id
+  role {
+    role_id = discord_role.admin.id
+  }
+}
