@@ -44,4 +44,5 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.moderator.allow_bits
+  position    = 0
 }
