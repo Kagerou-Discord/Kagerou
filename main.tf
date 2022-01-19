@@ -7,7 +7,11 @@ terraform {
   }
 }
 
-variable "DISCORD_TOKEN" {}
+variable "DISCORD_TOKEN" {
+  type        = string
+  description = "Token of the discord bot."
+  sensitive   = true
+}
 
 provider "discord" {
   token = var.DISCORD_TOKEN
