@@ -24,16 +24,9 @@ resource "discord_server" "server" {
   default_message_notifications = 1
 }
 
-resource "discord_category_channel" "general" {
-  name      = "general"
-  server_id = discord_server.server.id
-  position  = 0
-}
-
 resource "discord_text_channel" "general" {
   name      = "general"
   server_id = discord_server.server.id
-  category  = discord_category_channel.general.id
 }
 
 resource "discord_invite" "invite_to_general" {
