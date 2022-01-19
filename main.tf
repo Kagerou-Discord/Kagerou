@@ -7,14 +7,14 @@ terraform {
   }
 }
 
-variable "DISCORD_TOKEN" {
+variable "discord_token" {
   type        = string
   description = "Token of the discord bot."
   sensitive   = true
 }
 
 provider "discord" {
-  token = var.DISCORD_TOKEN
+  token = var.discord_token
 }
 
 resource "discord_server" "etoile" {
