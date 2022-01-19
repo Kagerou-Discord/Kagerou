@@ -25,7 +25,7 @@ resource "discord_server" "server" {
 }
 
 resource "discord_text_channel" "general" {
-  name      = "general"
+  name      = "genera"
   server_id = discord_server.server.id
 }
 
