@@ -45,7 +45,6 @@ resource "discord_role" "admin" {
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
   position    = 0
-  managed     = true
 }
 
 resource "discord_member_roles" "admin" {
