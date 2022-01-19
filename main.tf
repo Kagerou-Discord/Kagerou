@@ -46,3 +46,9 @@ resource "discord_role" "admin" {
   permissions = data.discord_permission.moderator.allow_bits
   position    = 0
 }
+
+resource "discord_member_roles" "admin" {
+  user_id   = "255951609174032385"
+  server_id = discord_server.server.id
+  role_id   = discord_role.admin.id
+}
