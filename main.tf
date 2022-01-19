@@ -16,3 +16,20 @@ variable "discord_token" {
 provider "discord" {
   token = var.discord_token
 }
+
+resource "discord_server" "server" {
+  name                          = "Kagerou"
+  region                        = "japan"
+  owner_id                      = "933006368443604992"
+  default_message_notifications = 1
+}
+
+resource "discord_text_channel" "general" {
+  name      = "general"
+  server_id = discord_server.server.id
+}
+
+resource "discord_invite" "invite_to_general" {
+  channel_id = discord_text_channel.general.id
+  max_age    = 0
+}
