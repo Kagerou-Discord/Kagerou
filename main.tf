@@ -35,3 +35,9 @@ resource "discord_text_channel" "general" {
   server_id = discord_server.server.id
   category  = discord_category_channel.general.id
 }
+
+resource "discord_role" "admin" {
+  name        = "管理用ロール"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.moderator.allow_bits
+}
