@@ -24,12 +24,12 @@ resource "discord_server" "server" {
   default_message_notifications = 1
 }
 
-resource "discord_text_channel" "general" {
+resource "discord_text_channel" "genera" {
   name      = "genera"
   server_id = discord_server.server.id
 }
 
 resource "discord_invite" "invite_to_general" {
-  channel_id = discord_text_channel.general.id
+  channel_id = discord_text_channel.genera.id
   max_age    = 0
 }
