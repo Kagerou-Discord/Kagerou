@@ -17,7 +17,7 @@ provider "discord" {
   token = var.discord_token
 }
 
-resource "discord_server" "etoile" {
+resource "discord_server" "server" {
   name                          = "Kagerou"
   region                        = "japan"
   owner_id                      = "933006368443604992"
@@ -26,13 +26,13 @@ resource "discord_server" "etoile" {
 
 resource "discord_category_channel" "general" {
   name      = "general"
-  server_id = discord_server.etoile.id
+  server_id = discord_server.server.id
   position  = 0
 }
 
 resource "discord_text_channel" "general" {
   name      = "general"
-  server_id = discord_server.etoile.id
+  server_id = discord_server.server.id
   category  = discord_category_channel.general.id
 }
 
