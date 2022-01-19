@@ -36,14 +36,14 @@ resource "discord_text_channel" "general" {
   category  = discord_category_channel.general.id
 }
 
-data "discord_permission" "moderator" {
+data "discord_permission" "admin" {
   administrator = "allow"
 }
 
 resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.moderator.allow_bits
+  permissions = data.discord_permission.admin.allow_bits
   position    = 0
 }
 
