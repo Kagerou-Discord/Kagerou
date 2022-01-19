@@ -35,8 +35,3 @@ resource "discord_text_channel" "general" {
   server_id = discord_server.server.id
   category  = discord_category_channel.general.id
 }
-
-resource "discord_invite" "invite_to_general" {
-  channel_id = discord_text_channel.general.id
-  max_age    = 0
-}
