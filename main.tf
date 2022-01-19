@@ -50,5 +50,7 @@ resource "discord_role" "admin" {
 resource "discord_member_roles" "admin" {
   user_id   = "255951609174032385"
   server_id = discord_server.server.id
-  role_id   = discord_role.admin.id
+  role {
+    role_id = discord_role.admin.id
+  }
 }
