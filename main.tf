@@ -43,5 +43,5 @@ data "discord_permission" "moderator" {
 resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.moderator.kick_members
+  permissions = data.discord_permission.moderator.allow_bits
 }
