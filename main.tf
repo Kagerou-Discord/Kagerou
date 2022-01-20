@@ -5,6 +5,14 @@ terraform {
       version = "0.0.4"
     }
   }
+
+  cloud {
+    organization = "lucky3028"
+
+    workspaces {
+      name = "Kagerou"
+    }
+  }
 }
 
 provider "discord" {
