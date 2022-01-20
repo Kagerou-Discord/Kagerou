@@ -29,7 +29,7 @@ resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 0
+  position    = 1
 }
 
 data "discord_permission" "admin" {
