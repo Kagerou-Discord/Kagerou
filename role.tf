@@ -24,13 +24,6 @@ resource "discord_channel_permission" "community-update" {
   deny         = data.discord_permission.not_accessible.deny_bits
 }
 
-resource "discord_channel_permission" "general" {
-  channel_id   = discord_text_channel.general.id
-  type         = "role"
-  overwrite_id = discord_role.member.id
-  allow        = data.discord_permission.read_and_write.allow_bits
-}
-
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
