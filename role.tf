@@ -15,7 +15,7 @@ data "discord_permission" "read_and_write" {
 
 resource "discord_role_everyone" "everyone" {
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.not_accessible.deny_bits
+  permissions = 0
 }
 
 resource "discord_channel_permission" "community-update" {
@@ -29,7 +29,7 @@ resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 0
+  position    = 1
 }
 
 data "discord_permission" "admin" {
@@ -40,7 +40,7 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 1
+  position    = 2
 }
 
 locals {
