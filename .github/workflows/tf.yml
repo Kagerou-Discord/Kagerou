@@ -19,6 +19,8 @@ jobs:
         id: validation
       - run: terraform plan -no-color
         id: plan
+        env:
+          TF_VAR_discord_token: ${{ secrets.DISCORD_TOKEN }}
       - uses: actions/github-script@v5
         if: github.event_name == 'pull_request'
         env:
