@@ -13,13 +13,10 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       - run: terraform fmt -check
-        id: fmt
       - run: |
           terraform init
           terraform get
       - run: terraform validate -no-color
-        id: validation
       - run: terraform plan -no-color
-        id: plan
         env:
           TF_VAR_discord_token: ${{ secrets.DISCORD_TOKEN }}
