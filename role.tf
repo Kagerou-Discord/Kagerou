@@ -1,7 +1,3 @@
-data "discord_permission" "not_accessible" {
-  view_channel = "deny"
-}
-
 data "discord_permission" "read_only" {
   view_channel         = "allow"
   send_messages        = "deny"
@@ -22,7 +18,7 @@ resource "discord_channel_permission" "community-update" {
   channel_id   = discord_text_channel.community-update.id
   type         = "role"
   overwrite_id = discord_role_everyone.everyone.id
-  deny         = data.discord_permission.not_accessible.deny_bits
+  allow        = 0
 }
 
 resource "discord_role" "member" {
