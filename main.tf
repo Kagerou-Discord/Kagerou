@@ -1,3 +1,11 @@
+cloud {
+  organization = "lucky3028"
+
+  workspaces = {
+    name = "Kagerou"
+  }
+}
+
 terraform {
   required_providers {
     discord = {
