@@ -3,7 +3,6 @@ data "discord_permission" "not_accessible" {
 }
 
 data "discord_permission" "read-only" {
-  deny_extends  = data.discord_permission.not_accessible.deny_bits
   view_channel  = "allow"
   send_messages = "deny"
 }
