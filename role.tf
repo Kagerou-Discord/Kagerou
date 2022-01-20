@@ -1,23 +1,34 @@
-data "discord_permission" "member" {
-  view_channel  = "allow"
-  send_messages = "allow"
+data "discord_permission" "not-accessible" {
+  view_channel = "deny"
 }
 
-data "discord_permission" "test" {
-  view_channel  = "deny"
+data "discord_permission" "read-only" {
+  view_channel  = "allow"
   send_messages = "deny"
+}
+
+data "discord_permission" "read-and-write" {
+  allow_extends = data.discord_permission.read-only.allow_bits
+  send_messages = "allow"
 }
 
 resource "discord_role_everyone" "everyone" {
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.member.allow_bits
+  permissions = data.discord_permission.read-only.allow_bits
 }
 
 resource "discord_channel_permission" "community-update" {
   channel_id   = discord_text_channel.community-update.id
   type         = "role"
   overwrite_id = discord_role_everyone.everyone.id
-  deny         = data.discord_permission.test.deny_bits
+  deny         = data.discord_permission.not-accessible.deny_bits
+}
+
+resource "discord_role" "member" {
+  name        = "メンバー"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.read-and-write.allow_bits
+  position    = 0
 }
 
 data "discord_permission" "admin" {
@@ -28,7 +39,7 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 0
+  position    = 1
 }
 
 locals {
