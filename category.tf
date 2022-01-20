@@ -9,3 +9,9 @@ resource "discord_category_channel" "announce" {
   server_id = discord_server.server.id
   position  = 0
 }
+
+resource "discord_category_channel" "management" {
+  name      = "management"
+  server_id = discord_server.server.id
+  position  = 2
+}
