@@ -25,6 +25,13 @@ resource "discord_channel_permission" "announce" {
   deny         = data.discord_permission.read_only.deny_bits
 }
 
+resource "discord_channel_permission" "management" {
+  channel_id   = discord_category_channel.management.id
+  type         = "role"
+  overwrite_id = discord_role_everyone.everyone.id
+  deny         = data.discord_permission.not_accessible.deny_bits
+}
+
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
