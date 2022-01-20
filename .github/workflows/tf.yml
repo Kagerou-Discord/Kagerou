@@ -6,12 +6,12 @@ on:
     paths:
       - '**/*.tf'
       - '.terraform.lock.hcl'
-      - '.github/workflows/tf/yml'
+      - '.github/workflows/tf.yml'
   pull_request:
     paths:
       - '**/*.tf'
       - '.terraform.lock.hcl'
-      - '.github/workflows/tf/yml'
+      - '.github/workflows/tf.yml'
 jobs:
   plan:
     runs-on: ubuntu-latest
