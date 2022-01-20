@@ -11,7 +11,6 @@ resource "discord_role" "admin" {
 
 locals {
   admin_members = [
-    "255951609174032385",
     "933006368443604992"
   ]
 }
