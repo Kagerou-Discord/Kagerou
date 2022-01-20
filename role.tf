@@ -3,8 +3,9 @@ data "discord_permission" "not_accessible" {
 }
 
 data "discord_permission" "read_only" {
-  view_channel  = "allow"
-  send_messages = "deny"
+  view_channel         = "allow"
+  send_messages        = "deny"
+  read_message_history = "allow"
 }
 
 data "discord_permission" "read_and_write" {
@@ -22,13 +23,6 @@ resource "discord_channel_permission" "community-update" {
   type         = "role"
   overwrite_id = discord_role_everyone.everyone.id
   deny         = data.discord_permission.not_accessible.deny_bits
-}
-
-resource "discord_channel_permission" "general" {
-  channel_id   = discord_text_channel.general.id
-  type         = "role"
-  overwrite_id = discord_role.member.id
-  allow        = data.discord_permission.read_and_write.allow_bits
 }
 
 resource "discord_role" "member" {
