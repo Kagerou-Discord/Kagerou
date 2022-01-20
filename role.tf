@@ -7,7 +7,7 @@ data "discord_permission" "read_only" {
   send_messages = "deny"
 }
 
-data "discord_permission" "read-and-write" {
+data "discord_permission" "read_and_write" {
   allow_extends = data.discord_permission.read_only.allow_bits
   send_messages = "allow"
 }
@@ -26,7 +26,7 @@ resource "discord_channel_permission" "community-update" {
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.read-and-write.allow_bits
+  permissions = data.discord_permission.read_and_write.allow_bits
   position    = 0
 }
 
