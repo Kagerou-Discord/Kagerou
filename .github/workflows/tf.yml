@@ -26,3 +26,8 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           TF_VAR_discord_token: ${{ secrets.DISCORD_TOKEN }}
+      - name: Apply
+        run: terraform apply -auto-approve
+        if: github.event_name == 'push'
+        env:
+          TF_VAR_discord_token: ${{ secrets.DISCORD_TOKEN }}
