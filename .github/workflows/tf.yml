@@ -13,12 +13,11 @@ on:
       - '.terraform.lock.hcl'
       - '.github/workflows/tf/yml'
 jobs:
-  run:
-    name: Plan and Apply Terraform
+  plan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
