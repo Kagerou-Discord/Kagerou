@@ -8,6 +8,6 @@ locals {
 
 resource "discord_message" "hello_world" {
   channel_id = discord_text_channel.rule.id
-  for_each   = toset(locals.rules)
+  for_each   = toset(local.rules)
   content    = each.value
 }
