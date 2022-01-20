@@ -5,10 +5,9 @@ resource "discord_text_channel" "general" {
 }
 
 resource "discord_text_channel" "community-update" {
-  name                     = "community-update"
-  server_id                = discord_server.server.id
-  category                 = discord_category_channel.announce.id
-  sync_perms_with_category = false
+  name      = "community-update"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.management.id
 }
 
 resource "discord_text_channel" "rule" {
