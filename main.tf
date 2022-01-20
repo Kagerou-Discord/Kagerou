@@ -9,7 +9,7 @@ terraform {
   cloud {
     organization = "lucky3028"
 
-    workspaces = {
+    workspaces {
       name = "Kagerou"
     }
   }
