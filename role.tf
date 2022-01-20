@@ -1,3 +1,11 @@
+data "discord_permission" "member" {
+  view_channel  = "allow"
+  send_messages = "allow"
+}
+resource "discord_role_everyone" "everyone" {
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.member.allow_bits
+}
 data "discord_permission" "admin" {
   administrator = "allow"
 }
