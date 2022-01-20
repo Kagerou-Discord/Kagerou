@@ -5,7 +5,7 @@ data "discord_permission" "not_accessible" {
 data "discord_permission" "read_only" {
   view_channel         = "allow"
   send_messages        = "deny"
-  read_message_history = "true"
+  read_message_history = "allow"
 }
 
 data "discord_permission" "read_and_write" {
