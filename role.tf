@@ -1,3 +1,25 @@
+data "discord_permission" "member" {
+  view_channel  = "allow"
+  send_messages = "allow"
+}
+
+data "discord_permission" "test" {
+  view_channel  = "deny"
+  send_messages = "deny"
+}
+
+resource "discord_role_everyone" "everyone" {
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.member.allow_bits
+}
+
+resource "discord_channel_permission" "community-update" {
+  channel_id   = discord_text_channel.community-update.id
+  type         = "role"
+  overwrite_id = discord_role_everyone.everyone.id
+  deny         = data.discord_permission.test.deny_bits
+}
+
 data "discord_permission" "admin" {
   administrator = "allow"
 }

@@ -4,6 +4,12 @@ resource "discord_text_channel" "general" {
   category  = discord_category_channel.general.id
 }
 
+resource "discord_text_channel" "community-update" {
+  name      = "community-update"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.announce.id
+}
+
 resource "discord_text_channel" "rule" {
   name      = "rule"
   server_id = discord_server.server.id
