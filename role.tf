@@ -2,13 +2,13 @@ data "discord_permission" "not_accessible" {
   view_channel = "deny"
 }
 
-data "discord_permission" "read-only" {
+data "discord_permission" "read_only" {
   view_channel  = "allow"
   send_messages = "deny"
 }
 
 data "discord_permission" "read-and-write" {
-  allow_extends = data.discord_permission.read-only.allow_bits
+  allow_extends = data.discord_permission.read_only.allow_bits
   send_messages = "allow"
 }
 
