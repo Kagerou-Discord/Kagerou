@@ -20,7 +20,7 @@ resource "discord_role_everyone" "everyone" {
 resource "discord_channel_permission" "community-update" {
   channel_id   = discord_text_channel.community-update.id
   type         = "role"
-  overwrite_id = data.discord_role_everyone.everyone.id
+  overwrite_id = discord_role_everyone.everyone.id
 }
 
 resource "discord_role" "member" {
