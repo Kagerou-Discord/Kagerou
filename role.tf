@@ -15,7 +15,7 @@ data "discord_permission" "read_and_write" {
 
 resource "discord_role_everyone" "everyone" {
   server_id   = discord_server.server.id
-  permissions = data.discord_permission.not_accessible.deny_bits
+  permissions = 0
 }
 
 resource "discord_channel_permission" "community-update" {
