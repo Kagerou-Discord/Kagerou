@@ -26,12 +26,14 @@ resource "discord_text_channel" "system" {
   name      = "system-log"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
+  position  = 0
 }
 
 resource "discord_text_channel" "stock" {
   name      = "stock"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
+  position  = 1
 }
 
 resource "discord_text_channel" "stock_r18" {
@@ -39,6 +41,7 @@ resource "discord_text_channel" "stock_r18" {
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
   nsfw      = true
+  position  = 2
 }
 
 resource "discord_text_channel" "admin" {
