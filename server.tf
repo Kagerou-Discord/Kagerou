@@ -5,5 +5,6 @@ resource "discord_server" "server" {
   default_message_notifications = 1
   explicit_content_filter       = 2
   verification_level            = 3
-  system_channel_id             = discord_text_channel.system.id
+  # 循環参照を引き起こしてしまうためベタ書き
+  system_channel_id = "933899291527888896"
 }
