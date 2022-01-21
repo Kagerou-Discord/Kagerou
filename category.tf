@@ -1,7 +1,7 @@
 resource "discord_category_channel" "general" {
   name      = "general"
   server_id = discord_server.server.id
-  position  = 1
+  position  = 2
 }
 
 resource "discord_category_channel" "announce" {
@@ -13,5 +13,11 @@ resource "discord_category_channel" "announce" {
 resource "discord_category_channel" "management" {
   name      = "management"
   server_id = discord_server.server.id
-  position  = 2
+  position  = 3
+}
+
+resource "discord_category_channel" "read_only" {
+  name      = "read-only"
+  server_id = discord_server.server.id
+  position  = 1
 }
