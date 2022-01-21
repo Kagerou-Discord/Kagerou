@@ -66,6 +66,13 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
+  position    = 4
+}
+
+resource "discord_role" "safe_guard_nsfw" {
+  name        = "しんぴのまもり（NSFW）"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.read_and_write.allow_bits
   position    = 3
 }
 
