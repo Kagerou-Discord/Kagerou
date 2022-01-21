@@ -61,14 +61,14 @@ resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 2
+  position    = 1
 }
 
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 1
+  position    = 0
 }
 
 data "discord_permission" "admin" {
@@ -79,7 +79,7 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 3
+  position    = 2
 }
 
 locals {
