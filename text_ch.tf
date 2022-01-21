@@ -27,3 +27,9 @@ resource "discord_text_channel" "system" {
   server_id = discord_server.server.id
   category  = discord_category_channel.announce.id
 }
+
+resource "discord_text_channel" "admin" {
+  name      = "admin"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.management.id
+}
