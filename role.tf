@@ -13,6 +13,11 @@ data "discord_permission" "read_and_write" {
   send_messages = "allow"
 }
 
+data "discord_permission" "admin" {
+  allow_extends = data.discord_permission.read_and_write.allow_bits
+  administrator = "allow"
+}
+
 resource "discord_role_everyone" "everyone" {
   server_id   = discord_server.server.id
   permissions = 0
@@ -57,6 +62,13 @@ resource "discord_channel_permission" "management" {
   deny         = data.discord_permission.not_accessible.deny_bits
 }
 
+resource "discord_role" "admin" {
+  name        = "管理用ロール"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.admin.allow_bits
+  position    = 3
+}
+
 resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
   server_id   = discord_server.server.id
@@ -69,17 +81,6 @@ resource "discord_role" "member" {
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
   position    = 1
-}
-
-data "discord_permission" "admin" {
-  administrator = "allow"
-}
-
-resource "discord_role" "admin" {
-  name        = "管理用ロール"
-  server_id   = discord_server.server.id
-  permissions = data.discord_permission.admin.allow_bits
-  position    = 3
 }
 
 locals {
