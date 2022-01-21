@@ -44,7 +44,7 @@ resource "discord_channel_permission" "thumbs_down_member" {
 resource "discord_channel_permission" "thumbs_down_safe_guard" {
   channel_id   = discord_text_channel.thumbs_down.id
   type         = "role"
-  overwrite_id = discord_role.member.id
+  overwrite_id = discord_role.safe_guard.id
   allow        = 0
   deny         = data.discord_permission.read_only.deny_bits
 }
@@ -61,14 +61,14 @@ resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 1
+  position    = 2
 }
 
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 2
+  position    = 1
 }
 
 data "discord_permission" "admin" {
@@ -79,7 +79,7 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = discord_server.server.id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 0
+  position    = 3
 }
 
 locals {
