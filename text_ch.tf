@@ -56,7 +56,7 @@ resource "discord_text_channel" "thumbs_down" {
   category                 = discord_category_channel.read_only.id
   nsfw                     = true
   position                 = 3
-  sync_perms_with_category = true
+  sync_perms_with_category = false
 }
 
 resource "discord_text_channel" "admin" {
