@@ -25,7 +25,7 @@ resource "discord_text_channel" "news" {
 resource "discord_text_channel" "system" {
   name      = "system-log"
   server_id = discord_server.server.id
-  category  = discord_category_channel.announce.id
+  category  = discord_category_channel.read_only.id
 }
 
 resource "discord_text_channel" "admin" {
