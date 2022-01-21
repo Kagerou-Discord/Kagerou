@@ -45,7 +45,7 @@ resource "discord_channel_permission" "thumbs_down_safe_guard" {
   channel_id   = discord_text_channel.thumbs_down.id
   type         = "role"
   overwrite_id = discord_role.safe_guard.id
-  allow        = 0
+  allow        = data.discord_permission.read_only.allow_bits
   deny         = data.discord_permission.read_only.deny_bits
 }
 
