@@ -6,5 +6,6 @@ resource "discord_server" "server" {
   explicit_content_filter       = 2
   verification_level            = 3
   # 循環参照を引き起こしてしまうためベタ書き
+  # discord_text_channel.system
   system_channel_id = "933899291527888896"
 }
