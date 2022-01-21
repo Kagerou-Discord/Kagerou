@@ -54,16 +54,23 @@ resource "discord_text_channel" "thumbs_down" {
   sync_perms_with_category = false
 }
 
+resource "discord_text_channel" "admin_announce" {
+  name      = "announce-admin"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.management.id
+  position  = 0
+}
+
 resource "discord_text_channel" "admin" {
   name      = "admin"
   server_id = discord_server.server.id
   category  = discord_category_channel.management.id
-  position  = 0
+  position  = 1
 }
 
 resource "discord_text_channel" "community-update" {
   name      = "community-update"
   server_id = discord_server.server.id
   category  = discord_category_channel.management.id
-  position  = 1
+  position  = 2
 }
