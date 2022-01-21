@@ -41,6 +41,13 @@ resource "discord_channel_permission" "management" {
   deny         = data.discord_permission.not_accessible.deny_bits
 }
 
+resource "discord_role" "safe_guard" {
+  name        = "しんぴのまもり"
+  server_id   = discord_server.server.id
+  permissions = data.discord_permission.read_and_write.allow_bits
+  position    = 2
+}
+
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = discord_server.server.id
