@@ -29,6 +29,7 @@ resource "discord_channel_permission" "read_only" {
   channel_id   = discord_category_channel.read_only.id
   type         = "role"
   overwrite_id = discord_role.member.id
+  allow        = 0
   deny         = data.discord_permission.read_only.deny_bits
 }
 
