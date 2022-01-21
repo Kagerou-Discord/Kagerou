@@ -51,11 +51,12 @@ resource "discord_text_channel" "stock_r18" {
 }
 
 resource "discord_text_channel" "thumbs_down" {
-  name      = "👎"
-  server_id = discord_server.server.id
-  category  = discord_category_channel.read_only.id
-  nsfw      = true
-  position  = 3
+  name                     = "👎"
+  server_id                = discord_server.server.id
+  category                 = discord_category_channel.read_only.id
+  nsfw                     = true
+  position                 = 3
+  sync_perms_with_category = true
 }
 
 resource "discord_text_channel" "admin" {
