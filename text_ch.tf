@@ -50,6 +50,14 @@ resource "discord_text_channel" "stock_r18" {
   position  = 2
 }
 
+resource "discord_text_channel" "thumbs_down" {
+  name      = "👎"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.read_only.id
+  nsfw      = true
+  position  = 3
+}
+
 resource "discord_text_channel" "admin" {
   name      = "admin"
   server_id = discord_server.server.id
