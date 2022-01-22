@@ -23,6 +23,22 @@ resource "discord_role_everyone" "everyone" {
   permissions = 0
 }
 
+resource "discord_channel_permission" "newcomer" {
+  channel_id   = discord_text_channel.newcomer.id
+  type         = "role"
+  overwrite_id = discord_role_everyone.everyone.id
+  allow        = 0
+  deny         = data.discord_permission.read_only.deny_bits
+}
+
+resource "discord_channel_permission" "newcomer_member" {
+  channel_id   = discord_text_channel.newcomer.id
+  type         = "role"
+  overwrite_id = discord_role.member.id
+  allow        = 0
+  deny         = data.discord_permission.not_accessible.deny_bits
+}
+
 resource "discord_channel_permission" "announce" {
   channel_id   = discord_category_channel.announce.id
   type         = "role"
