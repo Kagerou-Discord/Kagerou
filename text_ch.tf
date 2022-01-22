@@ -8,53 +8,60 @@ resource "discord_text_channel" "rule" {
   name      = "rule"
   server_id = discord_server.server.id
   category  = discord_category_channel.announce.id
-}
-
-resource "discord_text_channel" "news" {
-  name      = "news"
-  server_id = discord_server.server.id
-  category  = discord_category_channel.announce.id
+  position  = 0
 }
 
 resource "discord_text_channel" "about" {
   name      = "about"
   server_id = discord_server.server.id
   category  = discord_category_channel.announce.id
+  position  = 1
+}
+
+resource "discord_text_channel" "news" {
+  name      = "news"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.announce.id
+  position  = 2
 }
 
 resource "discord_text_channel" "general" {
   name      = "general"
   server_id = discord_server.server.id
   category  = discord_category_channel.general.id
+  position  = 0
 }
 
 resource "discord_text_channel" "oshi" {
   name      = "推し"
   server_id = discord_server.server.id
   category  = discord_category_channel.general.id
-}
-
-resource "discord_text_channel" "neta_photo" {
-  name      = "ネタ画像"
-  server_id = discord_server.server.id
-  category  = discord_category_channel.general.id
+  position  = 1
 }
 
 resource "discord_text_channel" "idea" {
   name      = "idea"
   server_id = discord_server.server.id
   category  = discord_category_channel.general.id
+  position  = 2
 }
 
-resource "discord_text_channel" "role" {
-  name      = "role"
+resource "discord_text_channel" "neta_photo" {
+  name      = "ネタ画像"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.general.id
+  position  = 3
+}
+
+resource "discord_text_channel" "system" {
+  name      = "system-log"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
   position  = 0
 }
 
-resource "discord_text_channel" "system" {
-  name      = "system-log"
+resource "discord_text_channel" "role" {
+  name      = "role"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
   position  = 1
