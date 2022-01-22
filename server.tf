@@ -7,5 +7,5 @@ resource "discord_server" "server" {
   verification_level            = 3
   # 循環参照を引き起こしてしまうためベタ書き
   # discord_text_channel.system
-  system_channel_id = "933899291527888896"
+  system_channel_id = discord_text_channel.system.id
 }
