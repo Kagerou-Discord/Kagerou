@@ -22,6 +22,12 @@ resource "discord_text_channel" "oshi" {
   category  = discord_category_channel.general.id
 }
 
+resource "discord_text_channel" "neta_photo" {
+  name      = "ネタ画像"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.general.id
+}
+
 resource "discord_text_channel" "system" {
   name      = "system-log"
   server_id = discord_server.server.id
