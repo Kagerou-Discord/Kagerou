@@ -1,6 +1,7 @@
 resource "discord_text_channel" "newcomer" {
-  name      = "for-newcomers"
-  server_id = discord_server.server.id
+  name                     = "for-newcomers"
+  server_id                = discord_server.server.id
+  sync_perms_with_category = false
 }
 
 resource "discord_text_channel" "rule" {
