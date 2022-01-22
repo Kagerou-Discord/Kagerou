@@ -19,7 +19,7 @@ data "discord_permission" "admin" {
 }
 
 resource "discord_role_everyone" "everyone" {
-  server_id   = discord_server.server.id
+  server_id   = local.server_id
   permissions = 0
 }
 
@@ -96,28 +96,28 @@ resource "discord_channel_permission" "management" {
 
 resource "discord_role" "admin" {
   name        = "管理用ロール"
-  server_id   = discord_server.server.id
+  server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
   position    = 4
 }
 
 resource "discord_role" "safe_guard_nsfw" {
   name        = "しんぴのまもり（NSFW）"
-  server_id   = discord_server.server.id
+  server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
   position    = 3
 }
 
 resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
-  server_id   = discord_server.server.id
+  server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
   position    = 2
 }
 
 resource "discord_role" "member" {
   name        = "メンバー"
-  server_id   = discord_server.server.id
+  server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
   position    = 1
 }
@@ -132,7 +132,7 @@ locals {
 resource "discord_member_roles" "admin" {
   for_each  = toset(local.admin_members)
   user_id   = each.value
-  server_id = discord_server.server.id
+  server_id = local.server_id
   role {
     role_id = discord_role.admin.id
   }

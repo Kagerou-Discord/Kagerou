@@ -1,7 +1,3 @@
-locals {
-  server_id = "933543574975414312"
-}
-
 resource "discord_text_channel" "newcomer" {
   name                     = "for-newcomers"
   server_id                = local.server_id
