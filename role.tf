@@ -27,7 +27,7 @@ resource "discord_channel_permission" "newcomer" {
   channel_id   = discord_text_channel.newcomer.id
   type         = "role"
   overwrite_id = discord_role_everyone.everyone.id
-  allow        = 0
+  allow        = data.discord_permission.read_only.allow_bits
   deny         = data.discord_permission.read_only.deny_bits
 }
 
