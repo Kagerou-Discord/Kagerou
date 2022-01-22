@@ -34,18 +34,25 @@ resource "discord_text_channel" "idea" {
   category  = discord_category_channel.general.id
 }
 
+resource "discord_text_channel" "role" {
+  name      = "role"
+  server_id = discord_server.server.id
+  category  = discord_category_channel.read_only.id
+  position  = 0
+}
+
 resource "discord_text_channel" "system" {
   name      = "system-log"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
-  position  = 0
+  position  = 1
 }
 
 resource "discord_text_channel" "stock" {
   name      = "stock"
   server_id = discord_server.server.id
   category  = discord_category_channel.read_only.id
-  position  = 1
+  position  = 2
 }
 
 resource "discord_text_channel" "stock_r18" {
@@ -53,7 +60,7 @@ resource "discord_text_channel" "stock_r18" {
   server_id                = discord_server.server.id
   category                 = discord_category_channel.read_only.id
   nsfw                     = true
-  position                 = 2
+  position                 = 3
   sync_perms_with_category = false
 }
 
@@ -62,7 +69,7 @@ resource "discord_text_channel" "thumbs_down" {
   server_id                = discord_server.server.id
   category                 = discord_category_channel.read_only.id
   nsfw                     = true
-  position                 = 3
+  position                 = 4
   sync_perms_with_category = false
 }
 
