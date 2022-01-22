@@ -1,3 +1,8 @@
+resource "discord_text_channel" "newcomer" {
+  name      = "for-newcomers"
+  server_id = discord_server.server.id
+}
+
 resource "discord_text_channel" "rule" {
   name      = "rule"
   server_id = discord_server.server.id
