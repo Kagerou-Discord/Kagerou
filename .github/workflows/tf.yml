@@ -1,13 +1,6 @@
 name: Plan and Apply Terraform
 on:
   push:
-    branches:
-      - main
-    paths:
-      - '**/*.tf'
-      - '.terraform.lock.hcl'
-      - '.github/workflows/tf.yml'
-  pull_request:
     paths:
       - '**/*.tf'
       - '.terraform.lock.hcl'
@@ -33,7 +26,7 @@ jobs:
         run: terraform validate
       - name: Plan
         run: terraform plan
-        if: github.event_name == 'pull_request'
+        if: github.ref != 'refs/heads/main'
       - name: Apply
         run: terraform apply -auto-approve
-        if: github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
