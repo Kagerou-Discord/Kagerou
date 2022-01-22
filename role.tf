@@ -98,28 +98,28 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 5
+  position    = 4
 }
 
 resource "discord_role" "safe_guard_nsfw" {
   name        = "しんぴのまもり（NSFW）"
   server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 4
+  position    = 3
 }
 
 resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
   server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 3
+  position    = 2
 }
 
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = local.server_id
   permissions = data.discord_permission.read_and_write.allow_bits
-  position    = 2
+  position    = 1
 }
 
 locals {
