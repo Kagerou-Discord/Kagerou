@@ -9,12 +9,23 @@ data "discord_permission" "read_only" {
 }
 
 data "discord_permission" "read_and_write" {
-  allow_extends = data.discord_permission.read_only.allow_bits
-  send_messages = "allow"
+  allow_extends         = data.discord_permission.read_only.allow_bits
+  send_messages         = "allow"
+  add_reactions         = "allow"
+  use_external_emojis   = "allow"
+  use_external_stickers = "allow"
+}
+
+data "discord_permission" "general_member" {
+  allow_extends         = data.discord_permission.read_and_write.allow_bits
+  create_public_threads = "allow"
+  send_thread_messages  = "allow"
+  embed_links           = "allow"
+  attach_files          = "allow"
 }
 
 data "discord_permission" "admin" {
-  allow_extends = data.discord_permission.read_and_write.allow_bits
+  allow_extends = data.discord_permission.general_member.allow_bits
   administrator = "allow"
 }
 
@@ -44,6 +55,14 @@ resource "discord_channel_permission" "announce" {
   type         = "role"
   overwrite_id = discord_role.member.id
   deny         = data.discord_permission.read_only.deny_bits
+}
+
+resource "discord_channel_permission" "general" {
+  channel_id   = discord_category_channel.general.id
+  type         = "role"
+  overwrite_id = discord_role.member.id
+  allow        = data.discord_permission.general_member.allow_bits
+  deny         = data.discord_permission.general_member.deny_bits
 }
 
 resource "discord_channel_permission" "read_only" {
