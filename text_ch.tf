@@ -99,16 +99,23 @@ resource "discord_text_channel" "admin" {
   position  = 0
 }
 
+resource "discord_text_channel" "command" {
+  name      = "command"
+  server_id = local.server_id
+  category  = discord_category_channel.management.id
+  position  = 1
+}
+
 resource "discord_text_channel" "carl_log" {
   name      = "carl-log"
   server_id = local.server_id
   category  = discord_category_channel.management.id
-  position  = 1
+  position  = 2
 }
 
 resource "discord_text_channel" "community-update" {
   name      = "community-update"
   server_id = local.server_id
   category  = discord_category_channel.management.id
-  position  = 2
+  position  = 3
 }
