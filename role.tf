@@ -101,6 +101,12 @@ resource "discord_role" "admin" {
   position    = 5
 }
 
+# carl-botのロール
+data "discord_role" "carl_bot" {
+  server_id = local.server_id
+  role_id   = "934643172942942269"
+}
+
 resource "discord_role" "safe_guard_nsfw" {
   name        = "しんぴのまもり（NSFW）"
   server_id   = local.server_id
