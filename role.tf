@@ -9,11 +9,10 @@ data "discord_permission" "read_only" {
 }
 
 data "discord_permission" "read_and_write" {
-  allow_extends         = data.discord_permission.read_only.allow_bits
-  send_messages         = "allow"
-  add_reactions         = "allow"
-  use_external_emojis   = "allow"
-  use_external_stickers = "allow"
+  allow_extends       = data.discord_permission.read_only.allow_bits
+  send_messages       = "allow"
+  add_reactions       = "allow"
+  use_external_emojis = "allow"
 }
 
 data "discord_permission" "general_member" {
