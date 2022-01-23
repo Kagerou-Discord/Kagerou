@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     discord = {
-      source  = "aequasi/discord"
-      version = "0.0.4"
+      source  = "Chaotic-Logic/discord"
+      version = "0.0.1"
     }
   }
 
