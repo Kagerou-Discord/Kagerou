@@ -92,15 +92,15 @@ resource "discord_text_channel" "thumbs_down" {
   sync_perms_with_category = false
 }
 
-resource "discord_text_channel" "admin_announce" {
-  name      = "announce-admin"
+resource "discord_text_channel" "admin" {
+  name      = "admin"
   server_id = local.server_id
   category  = discord_category_channel.management.id
   position  = 0
 }
 
-resource "discord_text_channel" "admin" {
-  name      = "admin"
+resource "discord_text_channel" "carl_log" {
+  name      = "carl-log"
   server_id = local.server_id
   category  = discord_category_channel.management.id
   position  = 1
