@@ -5,10 +5,6 @@ resource "discord_text_channel" "newcomer" {
   sync_perms_with_category = false
 }
 
-output "new_comer_op" {
-  value = discord_text_channel.newcomer.parent_id
-}
-
 resource "discord_text_channel" "rule" {
   name      = "rule"
   server_id = local.server_id
