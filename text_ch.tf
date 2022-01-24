@@ -5,11 +5,8 @@ resource "discord_text_channel" "newcomer" {
   sync_perms_with_category = false
 }
 
-resource "discord_text_channel" "newcomer2" {
-  name                     = "for-newcomers"
-  server_id                = local.server_id
-  topic                    = "最初にサーバーに参加された方はこちらのチャンネルのみ閲覧可能です。"
-  sync_perms_with_category = false
+output "new_comer_op" {
+  value = discord_text_channel.newcomer.parent_id
 }
 
 resource "discord_text_channel" "rule" {
