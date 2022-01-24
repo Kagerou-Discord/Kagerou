@@ -8,7 +8,7 @@ resource "discord_text_channel" "newcomer" {
 resource "discord_text_channel" "newcomer2" {
   name                     = "for-newcomers2"
   server_id                = local.server_id
-  category  = discord_category_channel.announce.id
+  category                 = discord_category_channel.announce.id
   topic                    = "最初にサーバーに参加された方はこちらのチャンネルのみ閲覧可能です。"
   sync_perms_with_category = false
 }
