@@ -13,11 +13,11 @@ resource "discord_text_channel" "rule" {
   position  = 0
 }
 
-resource "discord_text_channel" "about" {
-  name      = "about"
+resource "discord_text_channel" "board" {
+  name      = "お得な掲示板"
   server_id = local.server_id
   category  = discord_category_channel.announce.id
-  topic     = "各チャンネルについての説明です。"
+  topic     = "本サーバーを利用する上でお徳な情報を掲載しています。"
   position  = 1
 }
 
