@@ -21,3 +21,15 @@ resource "discord_message" "about" {
   EOT
   pinned     = true
 }
+
+resource "discord_message" "rule" {
+  channel_id = discord_text_channel.rule.id
+  content    = <<-EOT
+    本Discordサーバーのルールについては、以下のURLをご覧ください。
+    https://github.com/Kagerou-Discord/docs/blob/main/rules.md
+
+    変更履歴はこちら。
+    https://github.com/Kagerou-Discord/docs/commits/main/rules.md
+  EOT
+  pinned     = true
+}
