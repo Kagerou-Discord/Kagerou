@@ -7,6 +7,7 @@ resource "discord_message" "newcomer" {
     管理者が確認ののち、他のチャンネルを閲覧できるようになりますので、いましばらくお待ちください。
     なお、その仕様のため、一見さんはお断りさせていただく可能性がございます。
   EOT
+  pinned     = true
 }
 
 resource "discord_message" "about" {
