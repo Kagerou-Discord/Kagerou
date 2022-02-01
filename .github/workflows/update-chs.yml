@@ -1,0 +1,12 @@
+name: Update channels.md in Kagerou-Discord/docs
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - text_ch.tf
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh workflow run update-ch.yml --repo Kagerou-Discord/docs --ref main
