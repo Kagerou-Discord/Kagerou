@@ -24,6 +24,20 @@ resource "discord_message" "about-ch" {
   pinned     = true
 }
 
+resource "discord_message" "about-server" {
+  channel_id = discord_text_channel.board.id
+  content    = <<-EOT
+    **[本サーバーの細々とした説明]**
+
+    本Discordサーバーについての細々とした説明については、以下のURLをご覧ください。
+    https://github.com/Kagerou-Discord/docs/blob/main/about.md
+
+    変更履歴はこちら。
+    https://github.com/Kagerou-Discord/docs/commits/main/about.md
+  EOT
+  pinned     = true
+}
+
 resource "discord_message" "rule" {
   channel_id = discord_text_channel.rule.id
   content    = <<-EOT
