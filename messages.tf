@@ -2,7 +2,7 @@ resource "discord_message" "newcomer" {
   channel_id = discord_text_channel.newcomer.id
   content    = <<-EOT
     ようこそ。
-    このDiscordサーバーは、Lucky3028というひとの個人的なサーバーです。
+    このDiscordサーバーは、<@255951609174032385>というひとの個人的なサーバーです。
     荒らし対策等のため、初めて参加された方はこのチャンネルのみ閲覧できます（書き込みはどのチャンネルにも行えません）。
     管理者が確認ののち、他のチャンネルを閲覧できるようになりますので、いましばらくお待ちください。
     なお、その仕様のため、一見さんはお断りさせていただく可能性がございます。
@@ -20,6 +20,20 @@ resource "discord_message" "about-ch" {
 
     変更履歴はこちら。
     https://github.com/Kagerou-Discord/docs/commits/main/channels.md
+  EOT
+  pinned     = true
+}
+
+resource "discord_message" "about-server" {
+  channel_id = discord_text_channel.board.id
+  content    = <<-EOT
+    **[本サーバーの細々とした説明]**
+
+    本Discordサーバーについての細々とした説明については、以下のURLをご覧ください。
+    https://github.com/Kagerou-Discord/docs/blob/main/about.md
+
+    変更履歴はこちら。
+    https://github.com/Kagerou-Discord/docs/commits/main/about.md
   EOT
   pinned     = true
 }
