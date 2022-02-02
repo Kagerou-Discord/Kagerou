@@ -17,7 +17,7 @@ resource "discord_text_channel" "board" {
   name      = "お得な掲示板"
   server_id = local.server_id
   category  = discord_category_channel.announce.id
-  topic     = "本サーバーを利用する上でお徳な情報を掲載しています。"
+  topic     = "本サーバーを利用する上でお得な情報を掲載しています。"
   position  = 1
 }
 
