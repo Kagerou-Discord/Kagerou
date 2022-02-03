@@ -1,12 +1,16 @@
 name: Initialize Terraform
 description: Preapre for executing Terraform CLI.
+inputs:
+  TF_TOKEN:
+    description: Terraform API Token
+    required: true
 runs:
   using: composite
   steps:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        cli_config_credentials_token: ${{ inputs.TF_TOKEN }}
     - name: Init and get modules
       shell: bash
       run: |

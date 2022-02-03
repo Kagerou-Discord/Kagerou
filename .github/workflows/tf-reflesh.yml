@@ -8,5 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Init TF
         uses: ./.github/actions/init-tf
+        with:
+          TF_TOKEN: ${{ secrets.TF_API_TOKEN }}
       - name: Reflesh states
         run: terraform reflesh

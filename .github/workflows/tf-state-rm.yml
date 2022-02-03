@@ -12,6 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Init TF
         uses: ./.github/actions/init-tf
+        with:
+          TF_TOKEN: ${{ secrets.TF_API_TOKEN }}
       - run: terraform state rm $STATE_NAME
         env:
           STATE_NAME: ${{ inputs.state-name }}
