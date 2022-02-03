@@ -6,8 +6,8 @@ resource "discord_text_channel" "newcomer" {
 }
 
 resource "discord_news_channel" "newcomer2" {
-  name                     = "for-newcomers"
-  server_id                = local.server_id
+  name      = "for-newcomers"
+  server_id = local.server_id
 }
 
 resource "discord_text_channel" "rule" {
