@@ -5,6 +5,11 @@ resource "discord_text_channel" "newcomer" {
   sync_perms_with_category = false
 }
 
+resource "discord_news_channel" "newcomer2" {
+  name                     = "for-newcomers"
+  server_id                = local.server_id
+}
+
 resource "discord_text_channel" "rule" {
   name      = "rule"
   server_id = local.server_id
