@@ -137,10 +137,18 @@ resource "discord_text_channel" "carl_log" {
   position  = 3
 }
 
+resource "discord_text_channel" "punishment_log" {
+  name      = "punishment-log"
+  server_id = local.server_id
+  category  = discord_category_channel.management.id
+  topic     = "Carl-botの処罰ログです。"
+  position  = 4
+}
+
 resource "discord_text_channel" "community-update" {
   name      = "community-update"
   server_id = local.server_id
   category  = discord_category_channel.management.id
   topic     = "Discordが送信するコミュニティアップデート情報です。"
-  position  = 4
+  position  = 5
 }
