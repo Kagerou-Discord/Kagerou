@@ -1,0 +1,17 @@
+name: Remove Terraform state
+on:
+  workflow_dispatch:
+inputs:
+  state-name:
+    description: The resource name you want to remove its state.
+    required: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Init TF
+        uses: ./.github/actions/init-tf
+      - run: terraform state rm $STATE_NAME
+        env:
+          STATE_NAME: ${{ inputs.state-name }}
