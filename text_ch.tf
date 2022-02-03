@@ -121,7 +121,7 @@ resource "discord_text_channel" "report" {
   position  = 1
 }
 
-resource "discord_text_channel" "command" {
+resource "discord_text_channel" "admin-command" {
   name      = "command"
   server_id = local.server_id
   category  = discord_category_channel.management.id
