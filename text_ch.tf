@@ -61,6 +61,14 @@ resource "discord_text_channel" "neta_photo" {
   position  = 3
 }
 
+resource "discord_text_channel" "command" {
+  name      = "command"
+  server_id = local.server_id
+  category  = discord_category_channel.general.id
+  topic     = "何かしらのコマンドはこちらでご利用ください。"
+  position  = 4
+}
+
 resource "discord_text_channel" "system" {
   name      = "system-log"
   server_id = local.server_id
