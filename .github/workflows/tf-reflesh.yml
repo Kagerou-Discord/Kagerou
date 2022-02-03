@@ -1,0 +1,12 @@
+name: Reflesh Terraform states
+on:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Init TF
+        uses: ./.github/actions/init-tf
+      - name: Reflesh states
+        run: terraform reflesh
