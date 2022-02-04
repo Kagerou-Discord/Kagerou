@@ -1,10 +1,10 @@
 name: Remove Terraform state
 on:
   workflow_dispatch:
-inputs:
-  state-name:
-    description: The resource name you want to remove its state.
-    required: true
+    inputs:
+      state-name:
+        description: The resource name you want to remove its state.
+        required: true
 jobs:
   run:
     runs-on: ubuntu-latest
