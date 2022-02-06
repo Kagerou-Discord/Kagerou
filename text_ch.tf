@@ -129,12 +129,20 @@ resource "discord_text_channel" "report" {
   position  = 1
 }
 
+resource "discord_text_channel" "spam-report" {
+  name      = "spam-report"
+  server_id = local.server_id
+  category  = discord_category_channel.management.id
+  topic     = "discord-spam-reporterが荒らしを検知した場合はこちらに通知されます。"
+  position  = 2
+}
+
 resource "discord_text_channel" "admin-command" {
   name      = "command"
   server_id = local.server_id
   category  = discord_category_channel.management.id
   topic     = "基本的にコマンドはこちらで実行してください。"
-  position  = 2
+  position  = 3
 }
 
 resource "discord_text_channel" "carl_log" {
@@ -142,7 +150,7 @@ resource "discord_text_channel" "carl_log" {
   server_id = local.server_id
   category  = discord_category_channel.management.id
   topic     = "Carl-botのログです。"
-  position  = 3
+  position  = 4
 }
 
 resource "discord_text_channel" "punishment_log" {
@@ -150,7 +158,7 @@ resource "discord_text_channel" "punishment_log" {
   server_id = local.server_id
   category  = discord_category_channel.management.id
   topic     = "Carl-botの処罰ログです。"
-  position  = 4
+  position  = 5
 }
 
 resource "discord_text_channel" "community-update" {
@@ -158,5 +166,5 @@ resource "discord_text_channel" "community-update" {
   server_id = local.server_id
   category  = discord_category_channel.management.id
   topic     = "Discordが送信するコミュニティアップデート情報です。"
-  position  = 5
+  position  = 6
 }
