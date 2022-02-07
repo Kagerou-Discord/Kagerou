@@ -94,6 +94,14 @@ resource "discord_channel_permission" "management" {
   deny         = data.discord_permission.not_accessible.deny_bits
 }
 
+# suspiciousはすべてのチャンネルでread-only
+resource "discord_channel_permission" "suspicious" {
+  channel_id   = discord_category_channel.general.id
+  type         = "role"
+  overwrite_id = discord_role.member.id
+  deny         = data.discord_permission.read_only.deny_bits
+}
+
 resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = local.server_id
