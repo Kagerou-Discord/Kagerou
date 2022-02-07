@@ -37,7 +37,7 @@ resource "discord_role" "suspicious" {
   server_id   = local.server_id
   permissions = data.discord_permission.read_only.allow_bits
   position    = 2
-  color       = 0xfbd246
+  color       = fbd246
 }
 
 resource "discord_role" "member" {
