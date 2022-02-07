@@ -107,6 +107,12 @@ data "discord_role" "carl_bot" {
   role_id   = "934643172942942269"
 }
 
+# spam-reporterのロール
+data "discord_role" "spam_reporter" {
+  server_id = local.server_id
+  role_id   = "939896732047769611"
+}
+
 resource "discord_role" "safe_guard_nsfw" {
   name        = "しんぴのまもり（NSFW）"
   server_id   = local.server_id
