@@ -98,7 +98,7 @@ resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
-  position    = 5
+  position    = 6
 }
 
 # carl-botのロール
