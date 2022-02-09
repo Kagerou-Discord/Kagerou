@@ -15,8 +15,8 @@ locals {
 }
 
 resource "discord_channel_permission" "member_not_accessible" {
-  for_each = toset(local.member_not_accessible)
-  channel_id = each.value
+  for_each     = toset(local.member_not_accessible)
+  channel_id   = each.value
   type         = "role"
   overwrite_id = discord_role.member.id
   allow        = 0
