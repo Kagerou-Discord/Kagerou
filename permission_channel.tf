@@ -84,7 +84,7 @@ resource "discord_channel_permission" "suspicious" {
   for_each     = toset(local.member_read_and_write)
   channel_id   = each.value
   type         = "role"
-  overwrite_id = discord_role.member.id
+  overwrite_id = discord_role.suspicious.id
   allow        = data.discord_permission.read_only.allow_bits
   deny         = data.discord_permission.read_only.deny_bits
 }
