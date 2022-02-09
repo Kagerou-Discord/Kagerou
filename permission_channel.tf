@@ -14,7 +14,7 @@ locals {
   ]
 }
 
-resourec "discord_channel_permission" "member_not_accessible" {
+resource "discord_channel_permission" "member_not_accessible" {
   for_each = toset(local.member_not_accessible)
   channel_id = each.value
   type         = "role"
