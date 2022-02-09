@@ -23,6 +23,24 @@ resource "discord_channel_permission" "member_not_accessible" {
   deny         = data.discord_permission.not_accessible.deny_bits
 }
 
+resource "discord_channel_permission" "member_read_only" {
+  for_each     = toset(local.member_read_only)
+  channel_id   = each.value
+  type         = "role"
+  overwrite_id = discord_role.member.id
+  allow        = data.discord_permission.read_only.allow_bits
+  deny         = data.discord_permission.read_only.deny_bits
+}
+
+resource "discord_channel_permission" "member_read_and_write" {
+  for_each     = toset(local.member_read_and_write)
+  channel_id   = each.value
+  type         = "role"
+  overwrite_id = discord_role.member.id
+  allow        = data.discord_permission.read_and_write.allow_bits
+  deny         = data.discord_permission.read_and_write.deny_bits
+}
+
 resource "discord_role_everyone" "everyone" {
   server_id   = local.server_id
   permissions = 0
@@ -33,21 +51,6 @@ resource "discord_channel_permission" "newcomer" {
   type         = "role"
   overwrite_id = discord_role_everyone.everyone.id
   allow        = data.discord_permission.read_only.allow_bits
-  deny         = data.discord_permission.read_only.deny_bits
-}
-
-resource "discord_channel_permission" "announce" {
-  channel_id   = discord_category_channel.announce.id
-  type         = "role"
-  overwrite_id = discord_role.member.id
-  deny         = data.discord_permission.read_only.deny_bits
-}
-
-resource "discord_channel_permission" "read_only" {
-  channel_id   = discord_category_channel.read_only.id
-  type         = "role"
-  overwrite_id = discord_role.member.id
-  allow        = 0
   deny         = data.discord_permission.read_only.deny_bits
 }
 
@@ -78,8 +81,10 @@ resource "discord_channel_permission" "management" {
 
 # suspiciousはすべてのチャンネルでread-only
 resource "discord_channel_permission" "suspicious" {
-  channel_id   = discord_category_channel.general.id
+  for_each     = toset(local.member_read_and_write)
+  channel_id   = each.value
   type         = "role"
   overwrite_id = discord_role.member.id
+  allow        = data.discord_permission.read_only.allow_bits
   deny         = data.discord_permission.read_only.deny_bits
 }

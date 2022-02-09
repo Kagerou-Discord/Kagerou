@@ -21,21 +21,21 @@ data "discord_role" "spam_reporter" {
 resource "discord_role" "safe_guard_nsfw" {
   name        = "しんぴのまもり（NSFW）"
   server_id   = local.server_id
-  permissions = data.discord_permission.read_and_write.allow_bits
+  permissions = 0
   position    = 4
 }
 
 resource "discord_role" "safe_guard" {
   name        = "しんぴのまもり"
   server_id   = local.server_id
-  permissions = data.discord_permission.read_and_write.allow_bits
+  permissions = 0
   position    = 3
 }
 
 resource "discord_role" "suspicious" {
   name        = "suspicious"
   server_id   = local.server_id
-  permissions = data.discord_permission.read_only.allow_bits
+  permissions = 0
   position    = 2
   # https://www.colordic.org/colorsample/fbd246
   color = 16503366
@@ -44,6 +44,6 @@ resource "discord_role" "suspicious" {
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = local.server_id
-  permissions = data.discord_permission.read_and_write.allow_bits
+  permissions = 0
   position    = 1
 }
