@@ -11,4 +11,4 @@ jobs:
         with:
           TF_TOKEN: ${{ secrets.TF_API_TOKEN }}
       - name: Reflesh states
-        run: terraform reflesh
+        run: terraform refresh
