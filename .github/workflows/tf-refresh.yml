@@ -1,4 +1,4 @@
-name: Reflesh Terraform states
+name: Refresh Terraform states
 on:
   workflow_dispatch:
 jobs:
@@ -10,5 +10,5 @@ jobs:
         uses: ./.github/actions/init-tf
         with:
           TF_TOKEN: ${{ secrets.TF_API_TOKEN }}
-      - name: Reflesh states
+      - name: Refresh states
         run: terraform refresh
