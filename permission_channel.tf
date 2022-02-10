@@ -70,7 +70,6 @@ resource "discord_channel_permission" "thumbs_down_safe_guard" {
   deny         = data.discord_permission.read_only.deny_bits
 }
 
-// TODO: memberより下のレベルでnot accessbile
 resource "discord_channel_permission" "management" {
   channel_id   = discord_category_channel.management.id
   type         = "role"
