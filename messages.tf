@@ -38,7 +38,7 @@ resource "discord_message" "about-server" {
   pinned     = true
 }
 
-resource "discord_mrssage" "invite" {
+resource "discord_message" "invite" {
   channel_id = discord_text_channel.board.id
   content    = <<-EOT
     **[本サーバーへの招待リンク]**
