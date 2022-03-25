@@ -50,7 +50,7 @@ resource "discord_role" "suspicious" {
 resource "discord_role" "member" {
   name        = "メンバー"
   server_id   = local.server_id
-  permissions = 0
+  permissions = data.discord_permission.everyone.allow_bits
   position    = 1
   # https://www.colordic.org/colorsample/4079
   color = 14279527
