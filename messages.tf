@@ -38,6 +38,17 @@ resource "discord_message" "about-server" {
   pinned     = true
 }
 
+resource "discord_mrssage" "invite" {
+  channel_id = discord_text_channel.board.id
+  content    = <<-EOT
+    **[本サーバーへの招待リンク]**
+    
+    本Duscordサーバーへの招待リンクはこちらをご利用ください。
+    https://discord.gg/${discord_invite.invite_to_newcomer.id}
+  EOT
+  pinned     = true
+}
+
 resource "discord_message" "rule" {
   channel_id = discord_text_channel.rule.id
   content    = <<-EOT
