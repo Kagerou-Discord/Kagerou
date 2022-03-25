@@ -43,7 +43,7 @@ resource "discord_message" "invite" {
   content    = <<-EOT
     **[本サーバーへの招待リンク]**
     
-    本Duscordサーバーへの招待リンクはこちらをご利用ください。
+    本Discordサーバーへの招待リンクはこちらをご利用ください。
     https://discord.gg/${discord_invite.invite_to_newcomer.id}
   EOT
   pinned     = true
