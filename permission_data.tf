@@ -7,7 +7,7 @@ data "discord_permission" "read_only" {
   send_messages        = "deny"
   read_message_history = "allow"
   add_reactions        = "allow"
-  change_nickname      = "true"
+  change_nickname      = "allow"
 }
 
 data "discord_permission" "read_and_write" {
