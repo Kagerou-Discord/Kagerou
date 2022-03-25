@@ -7,7 +7,6 @@ data "discord_permission" "read_only" {
   send_messages        = "deny"
   read_message_history = "allow"
   add_reactions        = "allow"
-  change_nickname      = "allow"
 }
 
 data "discord_permission" "read_and_write" {
@@ -23,4 +22,8 @@ data "discord_permission" "read_and_write" {
 data "discord_permission" "admin" {
   allow_extends = data.discord_permission.read_and_write.allow_bits
   administrator = "allow"
+}
+
+data "discord_permission" "everyone" {
+  change_nickname = "allow"
 }
