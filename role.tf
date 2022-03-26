@@ -25,8 +25,8 @@ resource "discord_role" "safe_guard_nsfw" {
   server_id   = local.server_id
   permissions = 0
   position    = 4
-  # https://www.colordic.org/colorsample/2263
-  color = 14514774
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
 
 resource "discord_role" "safe_guard" {
@@ -34,8 +34,8 @@ resource "discord_role" "safe_guard" {
   server_id   = local.server_id
   permissions = 0
   position    = 3
-  # https://www.colordic.org/colorsample/2263
-  color = 14514774
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
 
 resource "discord_role" "suspicious" {
