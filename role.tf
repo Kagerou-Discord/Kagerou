@@ -11,7 +11,6 @@ data "discord_role" "carl_bot" {
   role_id   = "934643172942942269"
 }
 
-# TODO: 権限をちゃんとする
 # spam-reporterのロール
 data "discord_role" "spam_reporter" {
   server_id = local.server_id
