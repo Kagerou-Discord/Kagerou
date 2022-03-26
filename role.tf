@@ -3,8 +3,8 @@ resource "discord_role" "admin" {
   server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
   position    = 7
-  # https://www.colordic.org/colorsample/1043
-  color = 49151
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
 
 # carl-botのロール
