@@ -3,6 +3,8 @@ resource "discord_role" "admin" {
   server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
   position    = 7
+  # https://www.colordic.org/colorsample/1043
+  color = 49151
 }
 
 # carl-botのロール
@@ -22,6 +24,8 @@ resource "discord_role" "safe_guard_nsfw" {
   server_id   = local.server_id
   permissions = 0
   position    = 4
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
 
 resource "discord_role" "safe_guard" {
@@ -29,6 +33,8 @@ resource "discord_role" "safe_guard" {
   server_id   = local.server_id
   permissions = 0
   position    = 3
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
 
 resource "discord_role" "suspicious" {
@@ -45,4 +51,6 @@ resource "discord_role" "member" {
   server_id   = local.server_id
   permissions = data.discord_permission.everyone.allow_bits
   position    = 1
+  # https://www.colordic.org/colorsample/4079
+  color = 14279527
 }
