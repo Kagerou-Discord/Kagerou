@@ -42,7 +42,7 @@ resource "discord_message" "invite" {
   channel_id = discord_text_channel.board.id
   content    = <<-EOT
     **[本サーバーへの招待リンク]**
-    
+
     本Discordサーバーへの招待リンクはこちらをご利用ください。
     https://discord.gg/${discord_invite.invite_to_newcomer.id}
   EOT
