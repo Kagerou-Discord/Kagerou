@@ -1,10 +1,14 @@
+locals {
+  # https://www.colordic.org/colorsample/4079
+  role_color = 14279527
+}
+
 resource "discord_role" "admin" {
   name        = "管理用ロール"
   server_id   = local.server_id
   permissions = data.discord_permission.admin.allow_bits
   position    = 7
-  # https://www.colordic.org/colorsample/4079
-  color = 14279527
+  color       = local.role_color
 }
 
 # carl-botのロール
@@ -24,8 +28,7 @@ resource "discord_role" "safe_guard_nsfw" {
   server_id   = local.server_id
   permissions = 0
   position    = 4
-  # https://www.colordic.org/colorsample/4079
-  color = 14279527
+  color       = local.role_color
 }
 
 resource "discord_role" "safe_guard" {
@@ -33,8 +36,7 @@ resource "discord_role" "safe_guard" {
   server_id   = local.server_id
   permissions = 0
   position    = 3
-  # https://www.colordic.org/colorsample/4079
-  color = 14279527
+  color       = local.role_color
 }
 
 resource "discord_role" "suspicious" {
@@ -51,6 +53,5 @@ resource "discord_role" "member" {
   server_id   = local.server_id
   permissions = data.discord_permission.everyone.allow_bits
   position    = 1
-  # https://www.colordic.org/colorsample/4079
-  color = 14279527
+  color       = local.role_color
 }
